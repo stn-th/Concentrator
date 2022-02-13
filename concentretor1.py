@@ -53,8 +53,8 @@ y_NU= R*cos(lat2)*sin(lon2)
 print("y_NU =",y_NU) 
 
 # คณะเกษตรศาสตร์
-lat6 = 15.11217
-lon6 =104.90886
+lat6 = 15.122201
+lon6 =104.908782
 x_AG = R*cos(lat6)*cos(lon6)
 print("x_AG =", x_AG)
 y_AG= R*cos(lat6)*sin(lon6)
@@ -174,60 +174,11 @@ import folium
 from folium.plugins import MarkerCluster
 
 
-#lat lon to x,y
-R = 6371.01
-# คณะวิศวกรรมศาตสร์ 
-lat1 = 15.12032 
-lon1 = 104.90462
-
-lat2 = 15.12053
-lon2 =104.90608
-
-
-#คณะศิลปประยุกต์และสถาปัตยกรรมศาสตร์   
-lat3 = 15.11829
-lon3 =104.90558
-
-#คณะเภสัช
-lat4 = 15.11943
-lon4 =104.91039
-
-# คณะพยาบาลศาสตร์
-lat5 = 15.11559
-lon5 =104.90653
-
-# คณะเกษตรศาสตร์
-lat6 = 15.11217
-lon6 =104.90886
-
-#คณะบริหารศาตสร์
-lat7 = 15.11947
-lon7 =104.90315
-
-#คณะรัฐศาสตร์
-lat8 = 15.12049
-lon8 =104.91065
-
-
-#คณะศิลปกรรมศาสตร์
-lat9 = 15.11706
-lon9 =104.90882
-
-
-#คณะวิทยาศาสตร์
-lat10 = 15.12255
-lon10 =104.90651
-
-#วิทยาลัยแพทย์ศาสตร์
-lat11 = 15.11548
-lon11 =104.90527
-
-
-concentrator1 =[[lat8,lon8],[lat4,lon4],[lat9,lon9]]
-concentrator2 =[[lat3,lon3],[lat11,lon11],[lat6,lon6]]
-concentrator3 =[[lat1,lon1],[lat2,lon2],[lat7,lon7]]
-concentrator4 =[[lat2,lon2],[lat10,lon10]]
-concentrator5 =[[15.11559,104.90886],[lat2,lon2]]
+point1 =[[15.11943,104.91039],[15.11706,104.90882]]
+point2 =[[15.12049,104.91065],[15.11943,104.91039],[15.122201,104.90878]]#846
+point3 =[[15.11559,104.90886],[15.12053,104.906082],[15.12255,104.90651]]#5210
+point4=[[15.12053,104.906082],[15.12032,104.90462]]#21
+point5 =[[15.11947,104.90315],[15.11829,104.90558],[15.11548,104.90527]]
 
 m = folium.Map(location=[15.11710,104.90690],name='ubu_map',zoom_start = 17)
 html = '<img src="data:image/png;base64,{}">'.format
@@ -239,19 +190,19 @@ folium.Marker(location=[15.11943,104.91039],popup ='Pharmaceutical Sciences' ,to
 tooltip3 = " concentrator2 isFaculty of Law"
 folium.Marker(location=[15.12053,104.90608],popup='Law"',tooltip=tooltip3,icon = folium.Icon(color='red')).add_to(m)
 
-tooltip2 = " concentrator3 is College of Medicine and Public Health"
-folium.Marker(location=[15.11548,104.90527],popup='College of Medicine and Public Health',tooltip=tooltip2,icon = folium.Icon(color='red')).add_to(m)
+tooltip2 = " concentrator3 is Faculty Of Applied Art & Architecture"
+folium.Marker(location=[15.11829,104.90558],popup='College of Medicine and Public Health',tooltip=tooltip2,icon = folium.Icon(color='red')).add_to(m)
 
 
 #node
-tooltip4 = " Faculty Of Applied Art & Architecture"
-folium.Marker(location=[15.11829,104.90558],popup=' Applied Art & Architecture',tooltip=tooltip4 ,icon = folium.Icon(color='blue')).add_to(m)
+tooltip4 = " Faculty Of College of Medicine and Public Health"
+folium.Marker(location=[15.11548,104.90527],popup=' Applied Art & Architecture',tooltip=tooltip4 ,icon = folium.Icon(color='blue')).add_to(m)
 
 tooltip5 = " Faculty of Engineering"
 folium.Marker(location=[15.12032,104.90462],popup='Engineering' ,tooltip=tooltip5 ,icon = folium.Icon(color='blue')).add_to(m)
 
 tooltip6 = "  Faculty of Agriculture"
-folium.Marker(location=[15.11217,104.90886],popup='  Agriculture' , tooltip=tooltip6 ,icon = folium.Icon(color='blue')).add_to(m)
+folium.Marker(location=[15.122201,104.90878],popup='  Agriculture' , tooltip=tooltip6 ,icon = folium.Icon(color='blue')).add_to(m)
 
 tooltip7 = " Faculty of Nursing"
 folium.Marker(location=[15.11559,104.90886],popup=' Nursing' ,tooltip=tooltip7 ,icon = folium.Icon(color='blue')).add_to(m)
@@ -270,11 +221,11 @@ folium.Marker(location=[15.12255,104.90651],popup=' Science' , tooltip=tooltip11
 
 
 #เส้นเชื่อม
-folium.PolyLine(concentrator1, color="Green", weight=2.5, opacity=1).add_to(m)
-folium.PolyLine(concentrator2, color="orange", weight=2.5, opacity=1).add_to(m)
-folium.PolyLine(concentrator3, color="brown ", weight=2.5, opacity=1).add_to(m)
-folium.PolyLine(concentrator4, color="brown ", weight=2.5, opacity=1).add_to(m)
-folium.PolyLine(concentrator5, color="brown ", weight=2.5, opacity=1).add_to(m)
-#folium.PolyLine(points, color="red", weight=2.5, opacity=1).add_to(m)
+folium.PolyLine(point1, color="Green", weight=2.5, opacity=1).add_to(m)
+folium.PolyLine(point2, color="Green", weight=2.5, opacity=1).add_to(m)
+folium.PolyLine(point3, color="orange", weight=2.5, opacity=1).add_to(m)
+folium.PolyLine(point4, color="orange", weight=2.5, opacity=1).add_to(m)
+folium.PolyLine(point5, color="brown ", weight=2.5, opacity=1).add_to(m)
+
 #บันทึกไฟล์แสดง
 m.save('Mapubu.html')
