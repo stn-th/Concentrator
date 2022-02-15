@@ -1,4 +1,5 @@
 import math
+from math import radians, sin, cos, acos
 from pulp import *
 import matplotlib.pyplot as plt
 import time
@@ -92,8 +93,8 @@ start_time = time.time()
 # N = 11   #number of nodes
 # roi_x = 10; #region of interest (wide)
 # roi_y = 10; #region of interest (high)
-beta = 400 #cost of establishing node i as a concentrator
-K = 8   #concentrator capacity
+beta = 100 #cost of establishing node i as a concentrator
+K = 1   #concentrator capacity
 P = {}
 #Add (lat, long) to (x, y) here!!!
 #option 1 node generation (fixed positions)
@@ -143,9 +144,12 @@ for i in Np:
             x_values = [P[i][0], P[j][0]]
             y_values = [P[i][1], P[j][1]]
             plt.plot(x_values, y_values, 'g--')
-plt.grid(True)
-plt.show()
 
+plt.title('Map concentretor')
+plt.xlabel('x position [m]')
+plt.ylabel('y position [m]')
+plt.show()
+plt.grid(True)
 #Add another network display here!!!
 #runtime
 print("\n** Runtime: %.2f sec **" % (time.time() - start_time))
@@ -199,3 +203,5 @@ folium.PolyLine(concentrator4, color="brown ", weight=2.5, opacity=1).add_to(m)
 
 #บันทึกไฟล์แสดง
 m.save('Mapubu.html')
+
+
