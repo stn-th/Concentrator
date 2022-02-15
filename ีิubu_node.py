@@ -1,7 +1,5 @@
 import math
-from math import radians, sin, cos, acos
 from pulp import *
-import math
 import matplotlib.pyplot as plt
 import time
 import random
